@@ -14,7 +14,7 @@ public class CSV2Arff {
 
 		// Load CSV
 		CSVLoader loader = new CSVLoader();
-		loader.setSource(new File("data\\googleplaystoredata.csv"));
+		loader.setSource(new File("data\\athlete_events.csv"));
 		Instances data = loader.getDataSet();
 
 //		// Filter data to get rid of unwanted columns
@@ -31,7 +31,7 @@ public class CSV2Arff {
 		// Save ARFF
 		ArffSaver saver = new ArffSaver();
 		saver.setInstances(data);
-		saver.setFile(new File("data\\googleplaystoredata.arff"));
+		saver.setFile(new File("data\\athlete_events.arff"));
 		saver.writeBatch();
 	}
 }
