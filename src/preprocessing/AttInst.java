@@ -10,7 +10,7 @@
  *  
  */
 
-package weka.api;
+package preprocessing;
 //import required classes
 import weka.experiment.Stats;
 import weka.core.AttributeStats;

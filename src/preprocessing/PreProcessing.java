@@ -51,6 +51,7 @@ public class PreProcessing {
 //		    if (inst.equals("NA")) {
 //		        data.delete(i);
 //		    }
+		
 //		}
 //		
 //		ArffSaver saver = new ArffSaver();
