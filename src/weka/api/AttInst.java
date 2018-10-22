@@ -21,15 +21,15 @@ import weka.core.converters.ConverterUtils.DataSource;
 public class AttInst {
 	public static void main(String args[]) throws Exception{
 		//load dataset
-		DataSource source = new DataSource("data\\googleplaystoredata.csv");
+		DataSource source = new DataSource("data\\athlete_events.csv");
 		//get instances object 
 		Instances data = source.getDataSet();
 		//set class index .. as the last attribute
-//	    if (data.classIndex() == -1) {
-//	       data.setClassIndex(data.numAttributes() - 1);
-//	    }
+	    if (data.classIndex() == -1) {
+	       data.setClassIndex(data.numAttributes() - 1);
+	    }
 	    //get number of attributes (notice class is not counted)
-		int numAttr = data.numAttributes() - 1;
+		int numAttr = data.numAttributes()-1;
 		for (int i = 0; i < numAttr; i++) {
 			//check if current attr is of type nominal
 			if (data.attribute(i).isNominal()) {
@@ -37,6 +37,7 @@ public class AttInst {
 				//get number of values
 				int n = data.attribute(i).numValues();
 				System.out.println("The "+i+"th Attribute has: "+n+" values");
+				
 			}			
 			
 			//get an AttributeStats object
@@ -53,24 +54,29 @@ public class AttInst {
 		}
 		//get number of instances
 		int numInst = data.numInstances();
+		int missingCountHeight = 0;
 		//loop through all instances
 		for (int j = 0; j < numInst; j++) {
 			//get the j'th instance
 			Instance instance = data.instance(j);
 			//check if 1st attr is missing from the j'th instance
-			if (instance.isMissing(0)) {
-				System.out.println("The "+0+"th Attribute is missing");		
+			if (instance.isMissing(4)) {
+				missingCountHeight++;
 			}
+			
+			
+			
 			//check if the class is missing from the j'th instance
-//			if (instance.classIsMissing()) {
-//				System.out.println("The class is missing in the "+j+"th Instance");		
-//			}
+			if (instance.classIsMissing()) {
+				System.out.println("The class is missing in the "+j+"th Instance");		
+			}
 			//if you want to access the value of Class in your data
 			//notice classes of type nominal and string are given ID's
 //			double cV = instance.classValue();
 //			System.out.println(instance.classAttribute().value((int)cV));
 			
 		}
+		System.out.println("The "+4+"th has " + missingCountHeight + " Missing Values");	
 		
 		
 	}
