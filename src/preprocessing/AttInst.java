@@ -21,7 +21,7 @@ import weka.core.converters.ConverterUtils.DataSource;
 public class AttInst {
 	public static void main(String args[]) throws Exception{
 		//load dataset
-		DataSource source = new DataSource("data\\athlete_events.csv");
+		DataSource source = new DataSource("data\\TerrorismData.csv");
 		//get instances object 
 		Instances data = source.getDataSet();
 		//set class index .. as the last attribute

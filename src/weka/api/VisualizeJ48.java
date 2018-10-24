@@ -50,7 +50,7 @@ public class VisualizeJ48 {
   public static void main(String args[]) throws Exception {
     // train classifier
     J48 cls = new J48();
-    Instances data = DataSource.read("data\\athlete_events.arff");
+    Instances data = DataSource.read("data\\athlete_events_discretized.csv");
     data.setClassIndex(data.numAttributes() - 1);
    
    // cls.measureTreeSize();
@@ -58,7 +58,7 @@ public class VisualizeJ48 {
     cls.buildClassifier(data);
     
     String[] options = new String[4];
-	options[0] = "U"; options[1] = "0.11";
+	options[0] = "-U"; options[1] = "0.11";
 	options[2] = "-M"; options[3] = "3";
 	J48 tree = new J48();
 	tree.setOptions(options);

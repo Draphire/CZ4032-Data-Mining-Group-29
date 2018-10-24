@@ -14,9 +14,10 @@ public class CSV2Arff {
 
 		// Load CSV
 		CSVLoader loader = new CSVLoader();
-		loader.setSource(new File("data\\athlete_events.csv"));
+		loader.setSource(new File("data\\TerrorismDataGnameCol.csv"));
 		Instances data = loader.getDataSet();
 
+		
 //		// Filter data to get rid of unwanted columns
 //		Remove removeAttrFilter = new Remove();
 //		removeAttrFilter.setAttributeIndices("33-34");
@@ -31,7 +32,7 @@ public class CSV2Arff {
 		// Save ARFF
 		ArffSaver saver = new ArffSaver();
 		saver.setInstances(data);
-		saver.setFile(new File("data\\athlete_events.arff"));
+		saver.setFile(new File("data\\TerrorismData.arff"));
 		saver.writeBatch();
 	}
 }

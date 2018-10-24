@@ -20,7 +20,7 @@ import weka.classifiers.Evaluation;
 public class Evaluate{
 	public static void main(String args[]) throws Exception{
 		//load datasets
-		DataSource source = new DataSource("data\\athlete_events.arff");
+		DataSource source = new DataSource("data\\athlete_events_trainingset.csv");
 		Instances dataset = source.getDataSet();	
 		//set class index to the last attribute
 		dataset.setClassIndex(dataset.numAttributes()-1);
@@ -37,7 +37,7 @@ public class Evaluate{
         //evaluate using the test dataset
 
 		//test dataset for evaluation
-		DataSource source1 = new DataSource("data\\athlete_events.arff");
+		DataSource source1 = new DataSource("data\\athlete_events_testset.csv");
 		Instances testDataset = source1.getDataSet();
 		//set class index to the last attribute
 		testDataset.setClassIndex(testDataset.numAttributes()-1);

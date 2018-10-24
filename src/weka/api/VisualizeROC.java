@@ -32,6 +32,8 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
+import util.Const;
+
 /**
  * Visualizes a previously saved ROC curve. Code taken from the 
  * <code>weka.gui.explorer.ClassifierPanel</code> - involved methods:
@@ -53,6 +55,8 @@ public class VisualizeROC {
    * @throws Exception	if something goes wrong
    */
   public static void main(String[] args) throws Exception {
+	
+	  Instances curve = DataSource.read("data\\TerrorismDataGnameCol.csv");
 
     curve.setClassIndex(curve.numAttributes() - 1);
     
