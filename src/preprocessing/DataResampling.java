@@ -72,7 +72,10 @@ public class DataResampling {
 			
 			newData = Filter.useFilter(dataset, r);
 			newData.setClassIndex(newData.numAttributes() - 1);
-			System.out.println(newData.toSummaryString());
+		//	System.out.println(newData.toSummaryString());
+			
+			System.out.println("Data Resampled ///////////////////////////////////// \n");
+			
 			return newData;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

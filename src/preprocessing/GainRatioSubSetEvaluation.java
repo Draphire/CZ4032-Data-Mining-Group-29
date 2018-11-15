@@ -52,6 +52,40 @@ public class GainRatioSubSetEvaluation {
 	
 
 	}
+	public static void GainRatioSubSet (Instances dataset){
+		
+		
+		dataset.setClassIndex(dataset.numAttributes() - 1);
+		   //  cls.buildClassifier(data);
+			// create AttributeSelection object
+			AttributeSelection filter = new AttributeSelection();
+			// create evaluator and search algorithm objects
+			GainRatioAttributeEval eval = new GainRatioAttributeEval();
+			Ranker search = new Ranker();
+			search.setGenerateRanking(true);
+			search.setNumToSelect(-1);
+			search.setThreshold(-1.7976931348623157E308);
+			// set the algorithm to search backward
+			// set the algorithm to search backward
+			// search.setSearchBackwards(true);
+			// set the filter to use the evaluator and search algorithm
+			try {
+				eval.buildEvaluator(dataset);
+				System.out.println("\n GainRatio Attribute Evaluation ///////////////////////////////////// \n");
+				
+				for (int i = 0; i < 20; i++) {
+					double v = eval.evaluateAttribute(i);
+					 System.out.print(i+""+dataset.attribute(i).name()+"\t\t");
+					System.out.println(v);
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
+		
+		
+		
+	}
 
 }
