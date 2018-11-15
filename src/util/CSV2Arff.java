@@ -14,7 +14,7 @@ public class CSV2Arff {
 
 		// Load CSV
 		CSVLoader loader = new CSVLoader();
-		loader.setSource(new File("data\\TerrorismDataGnameCol.csv"));
+		loader.setSource(new File("data\\TerrorismData.csv"));
 		Instances data = loader.getDataSet();
 
 		

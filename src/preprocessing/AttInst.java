@@ -13,6 +13,7 @@
 package preprocessing;
 //import required classes
 import weka.experiment.Stats;
+import util.Const;
 import weka.core.AttributeStats;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -21,7 +22,7 @@ import weka.core.converters.ConverterUtils.DataSource;
 public class AttInst {
 	public static void main(String args[]) throws Exception{
 		//load dataset
-		DataSource source = new DataSource("data\\TerrorismData.csv");
+		DataSource source = new DataSource(Const.FULL_DATA_FILENAME_CSV);
 		//get instances object 
 		Instances data = source.getDataSet();
 		//set class index .. as the last attribute

@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="lib" path="C:/Users/WeeLiang Ng/Downloads/weka.jar"/>
 	<classpathentry kind="src" path="/CZ4032-Data-Mining"/>
+	<classpathentry kind="lib" path="C:/workspace/2018ws/CZ4032-Data-Analytics-And-Mining/lib/weka.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
