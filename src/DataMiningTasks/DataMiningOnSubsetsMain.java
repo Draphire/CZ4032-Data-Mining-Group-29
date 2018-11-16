@@ -10,7 +10,8 @@ public class DataMiningOnSubsetsMain {
 		Instances dataset = DataResampling.resampleData(source.getDataSet());
 		dataset.setClassIndex(dataset.numAttributes() - 1);
 		
-		Classification.DecisionTreeClassification(dataset);
+		ClassificationAlgorithms.RunClassificationTasks(dataset);
+	
 	}
 	
 }
