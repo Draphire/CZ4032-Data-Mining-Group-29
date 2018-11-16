@@ -9,6 +9,8 @@ import weka.core.converters.ConverterUtils.DataSource;
 public class DataMiningOnSubsetsMain {
 	public static void main(String args[]) throws Exception{
 
+		//Run to conduct all data mining tasks for every subset derived from feature subset selection
+		
 		DataSource source ;
 		Instances dataset;
 		
