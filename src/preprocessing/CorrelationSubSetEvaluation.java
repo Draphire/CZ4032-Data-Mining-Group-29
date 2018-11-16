@@ -24,38 +24,8 @@ import weka.filters.supervised.attribute.AttributeSelection;
 import weka.core.converters.ConverterUtils.DataSource;
 
 public class CorrelationSubSetEvaluation {
-	public static void main(String args[]) throws Exception {
-		// load dataset
-		DataSource source = new DataSource("data\\TerrorismDataBinaryBaseline.csv");
-		Instances dataset = DataResampling.resampleData(source.getDataSet());
-		//dataset.setClass();
-		dataset.setClassIndex(dataset.numAttributes() - 1);
-	   //  cls.buildClassifier(data);
-		// create AttributeSelection object
-		AttributeSelection filter = new AttributeSelection();
-		// create evaluator and search algorithm objects
-		CorrelationAttributeEval eval = new CorrelationAttributeEval();
-		Ranker search = new Ranker();
-		search.setGenerateRanking(true);
-		search.setNumToSelect(-1);
-		search.setThreshold(-1.7976931348623157E308);
-		// set the algorithm to search backward
-		// search.setSearchBackwards(true);
-		// set the filter to use the evaluator and search algorithm
-		eval.buildEvaluator(dataset);
-
-		for (int i = 0; i < 20; i++) {
-			double v = eval.evaluateAttribute(i);
-			 System.out.print(i+""+dataset.attribute(i).name()+"\t\t");
-			System.out.println(v);
-		}
-	
-
-	}
 
 	public static void CorrelationSubSet (Instances dataset){
-		
-		
 		dataset.setClassIndex(dataset.numAttributes() - 1);
 		   //  cls.buildClassifier(data);
 			// create AttributeSelection object
@@ -82,9 +52,5 @@ public class CorrelationSubSetEvaluation {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-		
-		
-		
 	}
 }

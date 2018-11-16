@@ -26,67 +26,13 @@ import weka.core.converters.ConverterUtils.DataSource;
 import weka.experiment.Stats;
 
 public class WrapperSubsetEvaluation{
-	public static void main(String args[]) throws Exception{
-		//load dataset
-		DataSource source = new DataSource("data\\TerrorismDataBinaryBaseline.csv");
-		Instances dataset = DataResampling.resampleData(source.getDataSet());
-		dataset.setClassIndex(dataset.numAttributes() - 1);
-		 
-		
-		//create AttributeSelection object
-		AttributeSelection filter = new AttributeSelection();
-		//create evaluator and search algorithm objects
-		WrapperSubsetEval eval = new WrapperSubsetEval();
-	//	GreedyStepwise search = new GreedyStepwise();
-		BestFirst search = new BestFirst();
-		
-		//set the algorithm to search backward
-		String[] options = new String[4];
-		options[0] = "-D";   // attribute index
-		options[1] = "0";    // 5
-		options[2] = "-N";   // match if value is smaller than
-		options[3] = "5"; 
-		//options[3] = "NA";   // 10
-//		options[2] = "-L";   // match if value is smaller than
-//		options[3] = "NA";   // 10
-		
-		search.setOptions(options);
-		//search.setSearchBackwards(true);
-		//set the filter to use the evaluator and search algorithm
-		filter.setEvaluator(eval);
-		filter.setSearch(search);
-		//specify the dataset
-		filter.setInputFormat(dataset);
-		//apply
-		Instances data = Filter.useFilter(dataset, filter);
-		//save
-		   if (data.classIndex() == -1) {
-		       data.setClassIndex(data.numAttributes() - 1);
-		    }
-		   
-		    //get number of attributes (notice class is not counted)
-			int numAttr = data.numAttributes()-1;
-			for (int i = 0; i < numAttr; i++) {
-				
-				
-				System.out.println("The "+i+ "th Attribute is " + data.attribute(i).name());
-				
-
-			}
-		}
-	
-	
 	public static void WrapperEvaluation (Instances dataset){
-		
-		
 		dataset.setClassIndex(dataset.numAttributes() - 1);
-		 
 		
 		//create AttributeSelection object
 		AttributeSelection filter = new AttributeSelection();
 		//create evaluator and search algorithm objects
 		WrapperSubsetEval eval = new WrapperSubsetEval();
-	//	GreedyStepwise search = new GreedyStepwise();
 		BestFirst search = new BestFirst();
 		
 		//set the algorithm to search backward
@@ -95,10 +41,6 @@ public class WrapperSubsetEvaluation{
 		options[1] = "0";    // 5
 		options[2] = "-N";   // match if value is smaller than
 		options[3] = "5"; 
-		//options[3] = "NA";   // 10
-//		options[2] = "-L";   // match if value is smaller than
-//		options[3] = "NA";   // 10
-
 		Instances data = null;
 		try {
 			search.setOptions(options);
@@ -108,35 +50,19 @@ public class WrapperSubsetEvaluation{
 			filter.setInputFormat(dataset);
 			//apply
 		 data = Filter.useFilter(dataset, filter);
-		//  ((Instances) data).setClassIndex(data.numAttributes() - 1);
-	//	 System.out.println(data.toSummaryString());
 			
 			int numAttr = data.numAttributes()-1;
 			for (int i = 0; i < numAttr; i++) {
 				
 				
 				System.out.println("The "+i+ "th Attribute is " + data.attribute(i).name());
-				
-
 			}
-		
 		
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//search.setSearchBackwards(true);
-		//set the filter to use the evaluator and search algorithm
-
-		//save
-//		   if (data.classIndex() == -1) {
-//		       data.setClassIndex(data.numAttributes() - 1);
-//		    }
-		   
-		    //get number of attributes (notice class is not counted)
-		
-		
+	
 	}
-
 	}
 
